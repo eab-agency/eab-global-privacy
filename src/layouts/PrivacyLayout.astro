@@ -1,0 +1,170 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+type Props = CollectionEntry<"partner">["data"];
+
+const { partnerName, partnerAddress, partnerLogo, partnerPrivacyUrl } =
+  Astro.props;
+const description = `Privacy policy for ${partnerName}`;
+const today = new Date();
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={partnerName}
+      description={description}
+      image={partnerLogo}
+    />
+    <style>
+      main {
+        width: calc(100% - 2em);
+        max-width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header partnerName={partnerName} image={partnerLogo} />
+    <main>
+      <section>
+        <h1>Privacy Policy and Cookie Notice</h1>
+        <p>
+          Please read Institution’s Privacy Policy for more information on how
+          we use your personal information collected via this website.
+        </p>
+        <p>
+          The following Cookie Notice describes how this website uses cookies
+          and how you can control them.
+        </p>
+      </section>
+
+      <section>
+        <article>
+          <h2>What Are Cookies and How Do They Work?</h2>
+          <p>
+            Cookies are small text files placed on your device to ensure that
+            our websites work efficiently and seamlessly and to perform certain
+            functions. They are unique to your account and your browser. The
+            website sends information to the browser, which then creates a text
+            file. Each time you go back to the same website, the browser
+            retrieves and sends this file to the website’s server. Cookies
+            cannot access, read, or modify any data on your computer.
+          </p>
+        </article>
+
+        <article>
+          <h2>How Do We Use Cookies on Our Website?</h2>
+          <p>
+            We use cookies and similar technologies on our websites, as almost
+            all websites do. We also use cookies when you access some of our
+            products and services. Cookies allow us, among other things, to
+            store your preferences and settings, authenticate and log you in,
+            provide you with a personalized experience, keep our websites
+            secure, and analyze how our websites and online services are
+            performing.
+          </p>
+        </article>
+
+        <article>
+          <h2>How Do You Control Cookies and Opt Out?</h2>
+          <p>
+            You have a variety of tools to control and opt out of cookies and
+            similar technologies. For example, you can use browser controls to
+            block and delete cookies. You can also use controls made available
+            by some third-party analytics service providers to opt out of data
+            collection through web beacons and similar technologies. In some
+            browsers, you can set your cookie preferences for each website,
+            which means you can disable cookies in general but allow them for
+            websites that you trust. Please remember that many of our services
+            may not function properly if you disable cookies for our websites or
+            services.
+          </p>
+          <p>
+            Learn more about the cookie settings for the most popular browsers:
+          </p>
+          <ul>
+            <li>
+              <a href="https://support.google.com/chrome/answer/95647"
+                >Google Chrome</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
+                >Mozilla Firefox</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+                >Safari</a
+              >
+            </li>
+            <li>
+              <a href="https://www.opera.com/help/tutorials/security/privacy/"
+                >Opera</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies"
+                >Microsoft Internet Explorer</a
+              >
+            </li>
+            <li>
+              <a href="https://support.apple.com/en-us/HT201265"
+                >Safari for iOS (iPhone and iPad)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.google.com/chrome/answer/114662?hl=en&visit_id=0-636524985093934271-407344697&rd=1&co=GENIE.Platform%3DAndroid&oco=1"
+                >Chrome for Android</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.microsoft.com/en-us/help/10635/windows-phone-change-privacy-and-other-browser-settings"
+                >Windows Phone</a
+              >
+            </li>
+          </ul>
+          <p>For other browsers, visit the provider’s website.</p>
+          <p>
+            You can opt out of third-party cookies from Google Analytics using
+            the <a
+              href="https://support.google.com/analytics/answer/181881?hl=en"
+              ><strong>Google Analytics opt-out browser setting add-on</strong
+              ></a
+            > or third-party ad management tools.
+          </p>
+          <p>
+            If you have questions or concerns regarding our use of cookies you
+            can contact the Institution directly.
+          </p>
+          <p>
+            You can <a href={partnerPrivacyUrl} target="_blank" rel="noopener"
+              >view the complete privacy policy for {partnerName}
+              here</a
+            >.
+          </p>
+          <p>
+            &copy; {today.getFullYear()} EAB Global, Inc. Patent Pending. All Rights
+            Reserved.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <Footer
+      partnerName={partnerName}
+      image={partnerLogo}
+      address={partnerAddress}
+    />
+  </body>
+</html>
